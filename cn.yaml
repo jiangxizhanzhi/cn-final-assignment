@@ -1,73 +1,22 @@
-{
-  "kind": "Deployment",
-  "apiVersion": "extensions/v1beta1",
-  "metadata": {
-    "name": "cn",
-    "namespace": "default",
-    "labels": {
-      "run": "cn"
-    },
-
-  },
-  "spec": {
-    "replicas": 1,
-    "selector": {
-      "matchLabels": {
-        "run": "cn"
-      }
-    },
-    "template": {
-      "metadata": {
-
-        "labels": {
-          "run": "cn"
-        }
-      },
-      "spec": {
-        "containers": [
-          {
-            "name": "cn",
-            "image": "harbor.edu.cn/cn202003/cn:lastest",
-            "imagePullPolicy": "IfNotPresent"
-          }
-        ],
-        "restartPolicy": "Always",
-      }
-    }
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: eureka-server
-  name: eureka-server
-  namespace: default
+    app: cn
+  name: cn
+  namespace: cn202003
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: eureka-server
+      app: cn
   template:
     metadata:
       labels:
-        app: eureka-server
+        app: cn
     spec:
       containers:
-      - image: registry.cn-hangzhou.aliyuncs.com/jkc/eureka-server:2.0.4
+      - image: harbor.edu.cn/cn202003/cn:lastest
         imagePullPolicy: IfNotPresent
         name: eureka-server
       restartPolicy: Always
