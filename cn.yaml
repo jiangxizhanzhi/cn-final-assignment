@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
@@ -16,7 +16,9 @@ spec:
         app: cn
     spec:
       containers:
-      - image: harbor.edu.cn/cn202003/cn:lastest
-        imagePullPolicy: IfNotPresent
-        name: eureka-server
+        - image: harbor.edu.cn/cn202003/cn:lastest
+          imagePullPolicy: IfNotPresent
+          name: cn
       restartPolicy: Always
+      imagePullSecrets:
+        - name: mytoken
