@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: cn
+  name: cn
+  namespace: cn202003
+spec:
+  ports:
+  - protocol: TCP
+    port: 8088
+    targetPort: 8088
+  selector:
+    app: cn
+  type: NodePort
