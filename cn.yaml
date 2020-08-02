@@ -16,9 +16,11 @@ spec:
         app: cn
     spec:
       containers:
-        - image: harbor.edu.cn/cn202003/cn:lastest
-          imagePullPolicy: IfNotPresent
-          name: cn
+      - image: harbor.edu.cn/cn202003/cn:lastest
+        imagePullPolicy: IfNotPresent
+        name: cn
+        ports:
+        - containerPort: 8088
       restartPolicy: Always
       imagePullSecrets:
-        - name: mytoken
+      - name: mytoken
